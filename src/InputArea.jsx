@@ -26,7 +26,7 @@ class InputArea extends Component {
   }
   render() {
     return(
-      <textarea onChange={this._onChange} onKeyPress={this._sendMessage}></textarea>
+      <textarea placeholder="input message then press enter" onChange={this._onChange} onKeyPress={this._sendMessage}></textarea>
     )
   }
 }

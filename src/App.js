@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Display from './Display'
 import InputArea from './InputArea'
+import ChatSelector from './ChatSelector'
 
 class App extends Component {
   constructor(props) {
@@ -17,6 +18,9 @@ class App extends Component {
       },
       activeChatId: 2,
     }
+  }
+  changeChat = (id) => () => {
+    this.setState({activeChatId: id})
   }
   // Function to pass down to input to send messages
   sendMessage = (message) => {
@@ -35,6 +39,8 @@ class App extends Component {
 
     return (
       <div className="App">
+        <h3>Click on chat ID to change Chat</h3>
+        <ChatSelector ids={Object.keys(this.state.chats)} selectChat={this.changeChat} />
         <Display messages={this.state.chats[this.state.activeChatId]}/>
         <InputArea send={this.sendMessage}/>
       </div>
