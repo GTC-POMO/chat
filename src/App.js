@@ -19,8 +19,15 @@ class App extends Component {
     }
   }
   // Function to pass down to input to send messages
-  sendMessage = () => {
-
+  sendMessage = (message) => {
+    // Implement socket sesnd here
+    // this.socket.send(message)
+    this.setState(prevState => {
+      let newArr = [...prevState.chats[this.state.activeChatId], message]
+      let state = {...prevState}
+      state.chats[this.state.activeChatId] = newArr;
+      return state;
+    })
   }
 
   render() {
@@ -29,7 +36,7 @@ class App extends Component {
     return (
       <div className="App">
         <Display messages={this.state.chats[this.state.activeChatId]}/>
-        <InputArea />
+        <InputArea send={this.sendMessage}/>
       </div>
     );
   }

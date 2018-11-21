@@ -4,16 +4,29 @@ class InputArea extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      message: ""
+      input: ""
     }
   }
   // Control form
   _onChange = (event) => {
-    this.setState({message: event.target.value})
+    this.setState({input: event.target.value})
+  }
+  // Send message
+  _sendMessage = (event) => {
+    if (event.key === 'Enter') {
+      event.preventDefault()
+      let message = {
+        type: 'outgoing',
+        message: this.state.input,
+      }
+      this.props.send(message);
+      event.target.value = "";
+      this.setState({input: ''});
+    }
   }
   render() {
     return(
-      <textarea onChange={this._onChange}></textarea>
+      <textarea onChange={this._onChange} onKeyPress={this._sendMessage}></textarea>
     )
   }
 }
