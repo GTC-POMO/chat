@@ -1,25 +1,35 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+
 import './App.css';
+import Display from './Display'
+import InputArea from './InputArea'
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      // Array of strings with current open connections
+      connections: ['id1', 'id 2'],
+      // Object of active chats (Chat history array)
+      chats: {
+        1: [{type: 'incoming', message: 'hi counsellor'}],
+        2: [{ type: 'incoming', message: 'help' }, { type: 'outgoing', message: 'whats wrong' }]
+      },
+      activeChatId: 2,
+    }
+  }
+  // Function to pass down to input to send messages
+  sendMessage = () => {
+
+  }
+
   render() {
+    console.log(this.state.chats[this.state.activeChatId]);
+
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <Display messages={this.state.chats[this.state.activeChatId]}/>
+        <InputArea />
       </div>
     );
   }
