@@ -1,0 +1,64 @@
+.chat {
+  height: 100vh;
+  background-color: #F9F9F9;
+}
+
+.chat-header {
+  height: 10%;
+  width: 50%;
+  color: #F9F9F9;
+  font-size: 1.5rem;
+  background-color: #08415B;
+
+}
+
+.messages {
+  display: block;
+  font-size: 0.8rem;
+  padding: 3%;
+  height: 75%;
+  overflow: auto;
+}
+
+.message-bubbles-left {
+  display: flex;
+}
+.client-message {
+  background-color: #eee;
+  padding: .5rem;
+  border-radius: .75rem;
+}
+
+.message-bubbles-right {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-top: 2%;
+}
+
+.counsellor-message {
+  background-color: #0b95c8;
+  color: #fff;
+  padding: .5rem;
+  border-radius: .75rem;
+}
+
+.message-time {
+  display: block;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap; 
+}
+
+.chatbar {
+  height: 15%;
+  width: 50%;
+  background-color: #08415B;
+}
+
+.chat-input {
+  position: relative;
+  left: 10%;
+  top: 31%;
+  width: 80%;
+  height: 45%; 
+}
