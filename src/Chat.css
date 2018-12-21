@@ -1,32 +1,33 @@
 .chat {
   height: 100vh;
-  background-color: #F9F9F9;
+  background-color: #E3E4E5;
 }
 
 .chat-header {
-  height: 10%;
-  width: 50%;
-  color: #F9F9F9;
+  height: 8%;
+  width: 100%;
+  color: black;
   font-size: 1.5rem;
-  background-color: #08415B;
-
+  background-color: #FFFFFF;
+  padding-left: 40px;
 }
 
 .messages {
   display: block;
   font-size: 0.8rem;
   padding: 3%;
-  height: 75%;
+  height: 84%;
   overflow: auto;
 }
 
-.message-bubbles-left {
+.messages .message-bubbles-left {
   display: flex;
 }
-.client-message {
-  background-color: #eee;
+.counsellor-message {
+  background-color: white;
   padding: .5rem;
-  border-radius: .75rem;
+  border-radius: 5px;
+  margin-bottom: 20px;
 }
 
 .message-bubbles-right {
@@ -35,12 +36,14 @@
   margin-top: 2%;
 }
 
-.counsellor-message {
+.client-message {
   background-color: #0b95c8;
   color: #fff;
   padding: .5rem;
-  border-radius: .75rem;
+  border-radius: 5px;
+  margin-bottom: 20px;
 }
+
 
 .message-time {
   display: block;
@@ -48,17 +51,37 @@
   overflow: hidden;
   white-space: nowrap; 
 }
+.message-time-left {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.message-time-left .message-name{
+  margin-right: 20px;
+}
+.message-time-right {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-bottom: 10px;
+}
+.message-time-right .message-name{
+  margin-left: 20px;
+}
 
 .chatbar {
-  height: 15%;
-  width: 50%;
-  background-color: #08415B;
+  position: absolute;
+  display: flex;
+  align-self: center;
+  height: 8%;
+  width: 100%;
+  background-color: #FFFFFF;
 }
 
 .chat-input {
-  position: relative;
-  left: 10%;
-  top: 31%;
   width: 80%;
-  height: 45%; 
+  height: 42px;
+  border: 0;
+  border-radius: 4px;
+  font-size: 1.3rem;
+  margin-left: 10px;
 }

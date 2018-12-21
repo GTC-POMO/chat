@@ -1,14 +1,13 @@
 import React, {Component} from 'react';
 import ChatBar from './ChatBar.jsx';
 import Messages from './Messages.jsx';
-import { Row } from 'antd';
 import 'antd/dist/antd.css';
 import './Chat.css';
 
 class Chat extends Component{
     state = {
       messages:[],
-      counsellor: {},
+      counsellor: '',
       userId:''
     };
 
@@ -22,7 +21,7 @@ class Chat extends Component{
       let parsedJson = JSON.parse(json.data);
       switch (parsedJson.type){
         case 'id':
-          this.setState({userId:parsedJson.id});
+          this.setState({userId:parsedJson.id, counsellor: {id:parsedJson.id, name: 'Dan Karres'}});
           break;
         case 'startChat':
           this.setState({counsellor:parsedJson.counsellor});
@@ -44,16 +43,16 @@ class Chat extends Component{
   }
   render(){
     let counsellorName = this.state.counsellor.name? this.state.counsellor.name : null;
-    let counsellorId = this.state.counsellor.counselerId? this.state.counsellor.counselerId : null;
+    let counsellorId = this.state.counsellor ? this.state.counsellor.id : null;
     return (
       <div className='chat'>
         <div className="chat-header">
-          {counsellorName}
+          Counselor: {counsellorName}
         </div>
 
         <Messages 
           messages={this.state.messages} 
-          clientName={counsellorName}
+          counsellorName={counsellorName}
         />
 
         <ChatBar         
